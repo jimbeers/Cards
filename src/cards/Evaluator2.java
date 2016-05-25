@@ -26,17 +26,18 @@ public class Evaluator2 {
 		// iterate through each set, get results
 		for (CardPair p: pairsToTest ) {
 			Evaluator e = new Evaluator(a1,a2,p.getCard1(),p.getCard2(),interations);
-			System.out.println(e);
+			//System.out.println(e);
 			handAcnt += e.getHandAcnt();
 			handBcnt += e.getHandBcnt();
 			tie += e.getTie();
 			totTests += e.getTests();
 		}
 		//print results
-		Double r1 = handAcnt;
-		
-		r1 = d/totTests;
-		System.out.println("A = " + r1 + " B = "+ handBcnt/totTests);
+		double r1 = handAcnt;
+		double r2 = handBcnt;
+		r1 = (r1*100)/totTests;
+		r2 = (r2*100)/totTests;
+		System.out.println("A = " + r1 + " B = "+ r2);
 	}
 
 	private List<CardPair> createPairsList() {
@@ -105,7 +106,7 @@ public class Evaluator2 {
 	}
 	
 	public static void main(String[] args) {
-		Evaluator2 v = new Evaluator2(new Card(4,1), new Card(5,2), 1000); //Q clubs, K clubs
+		Evaluator2 v = new Evaluator2(new Card(12,1), new Card(12,2), 1000); //Q clubs, K clubs
 		
 		}
 	
